@@ -1,0 +1,32 @@
+Package: SVARnarrsign
+Title: Identify SVAR models with sign and narrative sign restrictions (One Line, Title Case)
+Version: 1.0.0.9000
+Authors@R: 
+    person(given = "Aaron",
+           family = "Lohmann",
+           role = c("aut", "cre"),
+           email = "aaronlohmann@mail.de",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This package mainly does two things. First of all it lets the used fully identify a SVAR model with sign restrictions. Secondly 
+            one can also employ narrative sign restrictions of SVAR models.
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.5.0)
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Imports: 
+    dplyr,
+    ggplot2,
+    gridExtra,
+    mvnfast,
+    stats,
+    grid
+URL: https://github.com/aaron-lohmann/SVARnarrsign
+BugReports: https://github.com/aaron-lohmann/SVARnarrsign/issues
+Suggests: 
+    rmarkdown,
+    knitr,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3

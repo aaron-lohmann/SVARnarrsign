@@ -1,0 +1,36 @@
+---
+title: "SVARnarrsign Package vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{narrrsign}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+The identification of SVAR models is an ongoing research issue. Ev
+
+
+## Installation
+
+## Usage
+
+### Setup of restrictions
+
+### Executing the core function
+
+### Acessing the results
+
+
+## A model of the crude oil market (Kilian 2009)
+
+
+
