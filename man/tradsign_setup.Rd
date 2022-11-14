@@ -13,23 +13,24 @@ tradsign_setup(
 )
 }
 \arguments{
-\item{data}{Orignal data used for the model.}
+\item{data}{Orignal data used for estimating the model.}
 
-\item{shock_names}{A vector of shock names on which traditional sign
-restrictions. Notice this can be greather than the number of variables in
-case one wants to place different kinds of restrictions with different horizons
-on each structural shock.}
+\item{shock_names}{A vector of shock names on which traditional sign restric
+tions should be imposed.}
 
-\item{restr_matrix}{A matrix of dimensions shock names x K where each row
-represent one sign restriction.}
+\item{restr_matrix}{A matrix of dimenstions (length of shocknames)x(number o
+f system variables) which capture the sign restrictions. Suppose a system
+with one shock and 4 variables. Variable 1 and 3 are restricted to positive
+signs, variable 2 is restricted to negative sign and variable 4 is
+unrestricted. The defined matrix would be matrix(c(1,-2,3,NA))}
 
-\item{hor_matrix}{A matrix which defines the hoirzons for which the restrictions
-are supposed to hold}
+\item{hor_matrix}{A matrix which defines the hoirzons for which the restrict
+ions are supposed to hold.}
 }
 \value{
 A list which contains restrictions hoirzons and shock names
 }
 \description{
-This function sets up the traditional sign restrictions. Notice that
-these restrictions can even be more than 1 for each structural shock.
+tradsign_setup is used to define the inputs for narrsign() defining the trad
+itional sign restrictions.
 }

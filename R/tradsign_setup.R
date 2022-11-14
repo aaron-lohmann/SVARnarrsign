@@ -1,60 +1,48 @@
 #' Setup up of traditional sign restrictions.
 #'
-#' This function sets up the traditional sign restrictions. Notice that
-#' these restrictions can even be more than 1 for each structural shock.
+#' tradsign_setup is used to define the inputs for narrsign() defining the trad
+#' itional sign restrictions.
 #'
-#' @param data Orignal data used for the model.
-#' @param shock_names A vector of shock names on which traditional sign
-#' restrictions. Notice this can be greather than the number of variables in
-#' case one wants to place different kinds of restrictions with different horizons
-#' on each structural shock.
-#' @param restr_matrix A matrix of dimensions shock names x K where each row
-#' represent one sign restriction.
-#' @param hor_matrix A matrix which defines the hoirzons for which the restrictions
-#' are supposed to hold
+#' @param data Orignal data used for estimating the model.
+#' @param shock_names A vector of shock names on which traditional sign restric
+#' tions should be imposed.
+#' @param restr_matrix A matrix of dimenstions (length of shocknames)x(number o
+#' f system variables) which capture the sign restrictions. Suppose a system
+#' with one shock and 4 variables. Variable 1 and 3 are restricted to positive
+#' signs, variable 2 is restricted to negative sign and variable 4 is
+#' unrestricted. The defined matrix would be matrix(c(1,-2,3,NA))
+#' @param hor_matrix A matrix which defines the hoirzons for which the restrict
+#' ions are supposed to hold. This matrix has dimensions (length of shock names)
+#' x2. Where the first column refers to the starting horizon and the second
+#' column refers to the end horizon. Note, for convenience time period zero
+#' and 1 are both treated as "on-impact".
+#' @param cum A vector of length K indicating which variables should be treated
+#' as cumulative.
 #'
 #' @return A list which contains restrictions hoirzons and shock names
 #' @export
 #'
 #' @examples
+#' 
 tradsign_setup <- function(data = NULL,
                            shock_names = NULL,
                            restr_matrix = NULL,
                            hor_matrix = NULL,
                            cum = NULL) {
-  # number of varibles in the system
-  nvar <- ncol(data)
+  # TODO: Add input checks here.
 
-  # if(!all(dim(restr_matrix) == c(nvar,nvar))){
-  #  stop("The restriction matrix has incorrect dimensions. For a system with
-  #       K variables the restrictions matrix should have KxK dimensions. In
-  #       case you only want to partially identify a system you need to submit
-  #       coumns of NA to the unidentified shocks.")
-  # }
+# replacing all zeros in the horizon matrix with 1 as some researchers
+# consider the starting period 0 to be the first and some other use a 1 to
+# indicate the starting period.
 
-  # if(!all(dim(hor_matrix) == c(2,nvar))){
-  #  stop("The horizon matrix has incorrect dimensions. For a system with K
-  #       variables the horizon matrix should have 2xK dimensions. In case you
-  #       only want to partially identify a system you need to submit columns
-  #       of NA to the unidentified shocks.")
-  # }
+  hor_matrix[hor_matrix == 0] <- 1
 
-  # if (!length(unique(shock_names)) == nvar){
-  #  stop("The vector of shock_names has incorrect dimensions. For a system
-  #       with K variables the shock names should be a vector with at
-  #       most K unique entries.
-  #       In case you only want to partially identify a system you need to submit
-  #       NA values to the unidentified shocks.")
-  # }
-
-
-
-  tradSign_setup <- list(
+  tradsign_setup <- list(
     restrictions = restr_matrix,
     horizons = hor_matrix,
     shocknames = shock_names,
     cum = cum
   )
 
-  tradSign_setup
+  tradsign_setup
 }
