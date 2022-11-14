@@ -37,3 +37,5 @@ two_shock_plot <- function(narrSign_model = NULL,
     xlab("Time") +
     geom_line(aes(x = dates, y = shocks_nar_med), col = "#F8766D")
 }
+
+
