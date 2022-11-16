@@ -128,7 +128,7 @@ two_irf_plot <- function(narrSign_model = NULL,
     plot_list[[i]] <- local({
       i <- i
       ggplot(data = data.frame(horizon = 1:dim(impt)[2], median = impt[i, , 1]), aes(x = horizon, y = median)) +
-        geom_ribbon(aes(ymin = impt[i, , 2], ymax = impt[i, , 3]), alpha = 0.4, fill = "#00BFC4") +
+        geom_ribbon(aes(ymin = impt[i, , 2], ymax = impt[i, , 3]), alpha = 0.4, fill = "#1aabb0") +
         geom_line(col = "#00BFC4", size = 1.5) +
         ylab(varnames[i]) +
         geom_line(aes(x = horizon, y = rep(0, length(horizon)))) +
