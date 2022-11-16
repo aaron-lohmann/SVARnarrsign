@@ -1,26 +1,32 @@
-#' Title
+#' Estimate a SVAR model by means of traditional restrictions
+#' 
+#' tradsign_estim implements a Bayesian estimation procedure to obtain a
+#' prespecified set of draws which satisfy the traditional sign restrictions.
 #'
-#' @param Y Data for estimation without dates
-#' @param nlags A numeric for the amount of lags
-#' @param draws A numeric for amount of draws
-#' @param subdraws A numeric for amount of subdrwas
-#' @param nkeep A numeric for amount of traditionally identified to keep
-#' @param tradsign_setup A object of class tradsign_setup
-#' @param constant A Boolean on whether constant should be included
-#' @param steps A numeric for amount of steps
-#' @param EBR An object of function ebr_setup
+#' @param Y Data for estimation without dates.
+#' @param nlags A numeric for the amount of lags.
+#' @param draws A numeric for amount of draws.
+#' @param subdraws A numeric for amount of subdrwas.
+#' @param nkeep A numeric for amount of traditionally identified to keep.
+#' @param tradsign_setup A object of class tradsign_setup.
+#' @param constant A Boolean on whether constant should be included.
+#' @param steps A numeric for amount of steps.
+#' @param EBR An object of function ebr_setup.
 #'
 #' @return
-#' @export
 #'
+#' @references VarSignR
 
-tradsign_estim <-
-  function(Y = NULL, nlags = 4, draws = 200, subdraws = 200, nkeep = 1000, tradsign_setup = NULL, constant = TRUE, steps = 24, EBR = NULL,
-           oil_production = NULL) {
-    #
-    #--- SANITY CHECK ---#
-    # sanity.check.reject(Y=Y, nlags=nlags, draws=draws, subdraws=subdraws, nkeep=nkeep, KMIN=KMIN, KMAX=KMAX, constrained=constrained, constant=constant, steps=steps)
-    #
+tradsign_estim <- function(Y = NULL, 
+                           nlags = 4, 
+                           draws = 200, 
+                           subdraws = 200, 
+                           nkeep = 1000, 
+                           tradsign_setup = NULL, 
+                           constant = TRUE, 
+                           steps = 24, 
+                           EBR = NULL) {
+
     #--- SET UP PARAS ---#
 
     # tradsign setup
