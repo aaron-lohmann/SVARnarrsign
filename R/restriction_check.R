@@ -19,5 +19,16 @@
 restriction_check <- function(tradsign_setup_obj = NULL,
                               ebr_setup_obj = NULL, 
                               narrsign_obj = NULL){
+# Basic information about the model (number of variables) , T , variable names
+# shock names
+
+# Traditional restrictions
+
+# Elasticity bound restrictions
+
+# narrative restrictions
+
+# Small prompt for encouraging changes in case the printed outline does not 
+# seem to be correct
 
                               }
