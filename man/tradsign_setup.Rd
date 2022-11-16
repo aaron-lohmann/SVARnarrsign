@@ -25,7 +25,13 @@ signs, variable 2 is restricted to negative sign and variable 4 is
 unrestricted. The defined matrix would be matrix(c(1,-2,3,NA))}
 
 \item{hor_matrix}{A matrix which defines the hoirzons for which the restrict
-ions are supposed to hold.}
+ions are supposed to hold. This matrix has dimensions (length of shock names)
+x2. Where the first column refers to the starting horizon and the second
+column refers to the end horizon. Note, for convenience time period zero
+and 1 are both treated as "on-impact".}
+
+\item{cum}{A vector of length K indicating which variables should be treated
+as cumulative.}
 }
 \value{
 A list which contains restrictions hoirzons and shock names

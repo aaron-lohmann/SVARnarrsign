@@ -2,7 +2,7 @@
 % Please edit documentation in R/ebr_setup.R
 \name{ebr_setup}
 \alias{ebr_setup}
-\title{Setup the elasticitiy bound restrictions}
+\title{Define the elasticity bound restrictions.}
 \usage{
 ebr_setup(
   shock_names = NULL,
@@ -14,45 +14,52 @@ ebr_setup(
 }
 \arguments{
 \item{shock_names}{A vector of shock names on which elasticity bounds are
-placed.}
-
-\item{first_variable}{A vector of variable names of length shock names}
-
-\item{second_variable}{A vector of variables names of length shock names}
+placed. Note, each shock can be mentioned multiple times.}
 
 \item{horizon}{A vector of horizons for which elasticity bound restrictions
-should hold}
+should hold. This should have the same length as shock_names.}
 
-\item{bounds}{A vector of numerics which specify the elasticity bounds}
+\item{bounds}{A vector of numerics which specify the elasticity bounds. This
+should have the same length as shock_names.}
+
+\item{num_variable}{A vector of variables which are in the numerator.
+Should have the same length as shock_names. Each variable refers to one
+shock.}
+
+\item{denom_variable}{A vector of variables which are in the denominator.
+Should have the same length as shock_names. Each variable refers to one
+shock.}
 }
 \value{
 A tibble which contains the elasticity bound restrictions.
 }
 \description{
-This function sets up the elasticity bound restrictions.
+ebr_setup is used to define the elasticity restrictions to be applied. Note,
+that these elasticities are computed as fractions.
 }
 \examples{
 
 data(kilian_2009)
 varnames_kilian_2009 <- colnames(kilian_2009)
- 
- 
- 
- ebr_kilian_2009_shocknames <- c("Aggregate Demand","Oil specific Demand")
- ebr_kilian_2009_first <- c(varnames_kilian_2009[2],varnames_kilian_2009[2])
- ebr_kilian_2009_second <- c(varnames_kilian_2009[3],varnames_kilian_2009[3])
 
- ebr_kilian_2009_horizon <- c(1,1)
- ebr_kilian_2009_maxbounds <- c(0.0258,0.0258)
 
- 
- ebr_kilian_2009 <- ebr_setup(shock_names = ebr_kilian_2009_shocknames,
-                              first_variable = ebr_kilian_2009_first,
-                              second_variable = ebr_kilian_2009_second,
-                             horizon = ebr_kilian_2009_horizon,
-                             bounds = ebr_kilian_2009_maxbounds)
+
+ebr_kilian_2009_shocknames <- c("Aggregate Demand", "Oil specific Demand")
+ebr_kilian_2009_first <- c(varnames_kilian_2009[2], varnames_kilian_2009[2])
+ebr_kilian_2009_second <- c(varnames_kilian_2009[3], varnames_kilian_2009[3])
+
+ebr_kilian_2009_horizon <- c(1, 1)
+ebr_kilian_2009_maxbounds <- c(0.0258, 0.0258)
+
+
+ebr_kilian_2009 <- ebr_setup(
+  shock_names = ebr_kilian_2009_shocknames,
+  first_variable = ebr_kilian_2009_first,
+  second_variable = ebr_kilian_2009_second,
+  horizon = ebr_kilian_2009_horizon,
+  bounds = ebr_kilian_2009_maxbounds
+)
 
 ebr_kilian_2009
-
 
 }

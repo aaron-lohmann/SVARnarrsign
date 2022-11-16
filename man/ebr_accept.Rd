@@ -4,10 +4,10 @@
 \alias{ebr_accept}
 \title{Check whether elasticity bounds are satisfied}
 \usage{
-ebr_accept(EBR = NULL, impulses = NULL, Q = NULL, allshocknames, data = data)
+ebr_accept(ebr = NULL, impulses = NULL, Q = NULL, allshocknames, data = data)
 }
 \arguments{
-\item{EBR}{Object of ebr_setup.}
+\item{ebr}{Object of ebr_setup.}
 
 \item{impulses}{Computed impulses based on parameter draws.}
 
@@ -22,6 +22,11 @@ the system.}
 A Boolean whether elasticity bounds are fulfilled
 }
 \description{
-This function take the response of the first variable for the given horizon
-and divides it by the response of the second variable. Then this
+ebr_accept takes values for IRFs which are based on current draws, computes
+elasticity and assesses whether the elasticity bound restriction is
+satisified. Note that elasticities are computed here as fractions. This
+approach is likely only appropriate for a limited amount of application.
+}
+\references{
+Diaz Ramirez (2018)
 }

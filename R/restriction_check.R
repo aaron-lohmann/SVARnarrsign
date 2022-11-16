@@ -8,14 +8,16 @@
 #'
 #' @return A print statement summarising imposed restrictions
 #' @examples
-#' 
+#' \dontrun{
 #' restriction_check(tradsign_setup,
 #' ebr_setup,
 #' narrsign_setup)
+#' }
+
 
 
 restriction_check <- function(tradsign_setup_obj = NULL,
                               ebr_setup_obj = NULL, 
                               narrsign_obj = NULL){
-                                
+
                               }
