@@ -13,7 +13,7 @@
 #' bound should be considered
 #' @param const Boolean whether constant should be considered
 #' @param steps Amount of steps for which to compute the impulse responses
-#' @param narrweightdraws Amount of draws for the importance sampler
+#' @param narrweightdraws Amount of draws for the importance sampler.
 #'
 #' @return A list with outputs differentiating between model identified with 
 #' traditional sign restrictions and narrative sign restictions.
