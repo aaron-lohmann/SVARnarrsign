@@ -25,7 +25,8 @@ tradsign_estim <- function(Y = NULL,
                            tradsign_setup = NULL, 
                            constant = TRUE, 
                            steps = 24, 
-                           EBR = NULL) {
+                           EBR = NULL,
+                           oil_production = NULL) {
 
     #--- SET UP PARAS ---#
 

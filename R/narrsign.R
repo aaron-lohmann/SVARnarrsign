@@ -43,7 +43,7 @@ narrsign <- function(data = NULL,
     EBR = elasticitybounds,
     nkeep = nkeep,
     # oil prod for kilian like restriction
-    oil_production = oil_production
+    #oil_production = oil_production
   )
   
 
@@ -60,6 +60,7 @@ narrsign <- function(data = NULL,
       lag = lags
     )
   }
+  print("test")
 
   if (!is.null(narr_restr)){
     ret <- list(
