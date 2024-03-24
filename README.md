@@ -1,4 +1,7 @@
 # SVARnarrsign
+
+IN DEVELOPMENT : DO NOT USE BLINDLY. If you sumble upon this and want to use it, open issue or reach out, that helps motivate me to get the code up and running again. Cheers. 
+
 Implementation of narrative restriction identification of SVAR models.
 
 
